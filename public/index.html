@@ -1,14 +1,133 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>CS193x Final Project</title>
+    <meta name="google-site-verification" content="qxKsN500C4C72OvtnPrtEEetu3ckk_DXCKXNDM96LD4" />
+    <title>Diary</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css"/>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="/js/login-utils.js" defer></script>
+    <script src="/js/logInOut.js" defer></script>
+
+    <script src="/js/button.js" defer></script>
+    <script src="/js/date-view.js" defer></script>
+    <script src="/js/main-view.js" defer></script>
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/app.js" defer></script>
     <script src="/js/script.js" defer></script>
-    </script>
+    
   </head>
   <body>
     <!-- TODO(you): Add the HTML necessary to complete your final project. -->
+
+    <!-- 登入頁面 -->
+    <section class="main flex hidden" id="main-view">
+
+      <div class="head fadeInDown">Create a Daily Journal</div>
+      <div class="text slideInLeft">Note: Your journal will not be viewable and editable to anyone who has the link!</div>
+      
+      <section id="btn-menu" class="hidden">
+        <button class="text createBtn flipInX" id="btn">CREATE A NEW JOURNAL</button>
+        <button id="logout" class="text logIOBtn flipInX">Log out</button>
+      </section>
+
+      <section id="login-menu" class="hidden">
+        <button id="login" class="text logIOBtn flipInX">Login with Google</button>
+      </section>
+      
+      <div class="toggle hidden" id="toggle">
+        <input type="checkbox" id="temp" name="checkbox">
+        <label for="temp" id="Switch">Logout Switch Off</label>
+      </div>
+      
+      <div class="warn">please reload the page , if the page is without button element</div>
+
+    </section>
+
+    <!-- 日誌頁面 -->
+    <section class="main flex hidden" id="status-view">
+      <div class="flex wrap" id="divWarp">
+        <div id="date" class="head underline fadeIn"></div>
+        <div id="prompt" class="text fadeInUp"></div>
+        <textarea class="entry fadeIn" name="" id="text" rows="8"></textarea><br>
+      </div>
+      <div class="footer">
+        <div id="back-image"></div>
+        <div id="home">HOME</div>
+        <div id="forward-image"></div>
+      </div>
+
+    </section>
+
+    <!-- goto 頁面 -->
+    <section class="flex hidden" id="goto-view">
+      <div class="form">
+        <form class="signup">
+            <br/><br/><br/>
+            <h1 class="signup1">GO TO</h1>
+            <br/><br/>
+            <input name="username" type="text" placeholder="2019/7/1" class="username" id="user"/>
+            <button class="signUpBtn">Go</button>
+        </form>
+      </div>
+      <div class="warn" id="gotoWarn"></div>
+    </section>
+
+    <!-- list 頁面 -->
+    <section class="flex hidden" id="list-view">
+
+      <nav class="accordion arrows">
+
+        <header class="box" id="header">
+          <label for="acc-close" class="box-title auto" id="box-title">Diaries List</label>
+        </header>
+        <input type="radio" name="accordion" id="acc-close" />
+
+        <div class="hidden">
+          <input type="radio" name="accordion" id="cb1" class="list"/>
+          <section class="box" id="clone">
+            <label class="box-title fadeIn" for="cb1" id="title">Readme</label>
+            <label class="box-close" for="acc-close"></label>
+            <div class="box-content flipInX">Click on an item to open. Click on its header or the list header to close.</div>
+          </section>
+        </div>
+
+        <div id="append">
+        </div>
+
+      </nav>
+
+      <div class="footer">
+        <div id="back-page"></div>
+        <div id="forward-page"></div>
+      </div>
+
+    </section>
+
+
+    <!-- menu 頁面 -->
+    <nav class="menu hidden">
+        <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+        <label class="menu-open-button" for="menu-open">
+          <span class="lines line-1"></span>
+          <span class="lines line-2"></span>
+          <span class="lines line-3"></span>
+        </label>
+
+        <a href="javascript:void(0);" class="menu-item blue hidden"></a>
+        <a href="javascript:void(0);" class="menu-item green">Back</a>
+        <a href="javascript:void(0);" class="menu-item red">Logout</a>
+        <a href="javascript:void(0);" class="menu-item purple">List</a>
+        <a href="javascript:void(0);" class="menu-item orange">GoTo</a>
+        <!--<a href="javascript:void(0);" class="menu-item lightblue"> </a>-->
+    </nav>
+
+    
   </body>
 </html>
